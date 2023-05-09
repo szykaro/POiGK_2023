@@ -1,0 +1,8 @@
+freetype-py==2.3.0
+glfw==2.5.9
+hsluv==5.0.3
+kiwisolver==1.4.4
+numpy==1.22.3
+packaging==23.1
+PyOpenGL==3.1.6
+vispy==0.12.2
