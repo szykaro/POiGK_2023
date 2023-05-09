@@ -3,5 +3,5 @@ Materiały wykładowe z POiGK 2023
 
 ## Instalacja zależności
 ```bash
-pip install requirements.txt 
+pip install -r requirements.txt 
 ```
