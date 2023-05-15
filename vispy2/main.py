@@ -17,6 +17,7 @@ class Apka(app.Canvas):
                                         [1, 1],
                                         [1, -1],
                                         [-1, -1]])
+        self.program['color'] = np.array([1, 0, 0])
         self.show()
 
     @staticmethod
@@ -28,6 +29,11 @@ class Apka(app.Canvas):
 
     def on_draw(self, event):
         self.program.draw('triangle_fan')
+
+    def on_key_press(self, event):
+        if event.key == ' ':
+            self.program['color'] = np.random.rand(3)
+            self.show()
 
 
 apka = Apka()
