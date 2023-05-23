@@ -35,7 +35,6 @@ class Apka(app.Canvas):
         return shader
 
     def on_draw(self, event):
-
         gloo.clear()
         self.program.draw('triangle_fan')
 
