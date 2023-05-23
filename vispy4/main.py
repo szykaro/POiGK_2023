@@ -7,7 +7,10 @@ class Apka(app.Canvas):
         super().__init__(title='Hello world!',
                          size=(800, 800))
         self.program = None
+        self.time = 0
+        self.timer = app.Timer(1/60, connect=self.on_timer)
         self.draw_square()
+        self.timer.start()
 
     def draw_square(self):
         vertex_shader = self.load_shader('vertex_shader.glsl')
@@ -16,11 +19,12 @@ class Apka(app.Canvas):
         self.program['pos'] = np.array([[-1, 1],
                                         [1, 1],
                                         [1, -1],
-                                        [-1, -1]])
+                                        [-1, -1]]) * 0.25
         self.program['color'] = np.array([[1, 0, 0],
                                          [0, 1, 0],
                                          [0, 0, 1],
                                          [1, 1, 0]])
+        self.program['time'] = self.time
         self.show()
 
     @staticmethod
@@ -30,7 +34,20 @@ class Apka(app.Canvas):
         return shader
 
     def on_draw(self, event):
+        gloo.clear()
         self.program.draw('triangle_fan')
+
+    def on_key_press(self, event):
+        if event.key == ' ':
+            self.program['color'] = None
+            self.program['color'] = np.random.rand(4, 3).astype(np.float32)
+            self.show()
+
+    def on_timer(self, event):
+        self.time += 1/60
+        self.program['time'] = self.time
+        self.show()
+
 
 
 apka = Apka()
