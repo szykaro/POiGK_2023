@@ -21,10 +21,7 @@ def generate_triangles():
 
 def generate_lines():
     lines = []
-    initial_lines = [[1, 1, 1],
-                     [1, -1, -1],
-                     [-1, 1, -1],
-                     [-1, -1, 1]]
+    initial_lines = [[1, 1, 1], [1, -1, -1], [-1, 1, -1], [-1, -1, 1]]
     for first in initial_lines:
         for i in range(3):
             second = first.copy()

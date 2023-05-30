@@ -23,7 +23,7 @@ def reshape(width, height):
 
 
 def keyboard(key, x, y):
-    if key == b'\x1b':
+    if key == b"\x1b":
         sys.exit()
 
 
@@ -31,7 +31,7 @@ def keyboard(key, x, y):
 # --------------------------------------
 glut.glutInit()
 glut.glutInitDisplayMode(glut.GLUT_DOUBLE | glut.GLUT_RGBA)
-glut.glutCreateWindow('Hello world!')
+glut.glutCreateWindow("Hello world!")
 glut.glutReshapeWindow(512, 512)
 glut.glutReshapeFunc(reshape)
 glut.glutDisplayFunc(display)
@@ -40,7 +40,7 @@ glut.glutKeyboardFunc(keyboard)
 # Build data
 # --------------------------------------
 data = np.zeros(4, [("position", np.float32, 2)])
-data['position'] = [(-1, +1), (+1, +1), (-1, -1), (+1, -1)]
+data["position"] = [(-1, +1), (+1, +1), (-1, -1), (+1, -1)]
 
 # Build & activate program
 # --------------------------------------
@@ -74,7 +74,7 @@ gl.glAttachShader(program, fragment)
 gl.glLinkProgram(program)
 if not gl.glGetProgramiv(program, gl.GL_LINK_STATUS):
     print(gl.glGetProgramInfoLog(program))
-    raise RuntimeError('Linking error')
+    raise RuntimeError("Linking error")
 
 # Get rid of shaders (no more needed)
 gl.glDetachShader(program, vertex)
