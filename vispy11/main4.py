@@ -6,11 +6,6 @@ from vispy.scene.visuals import Mesh
 from vispy.scene import transforms
 from vispy.visuals.filters import ShadingFilter, WireframeFilter
 
-from sklearn.metrics import confusion_matrix
-import matplotlib.pyplot as plt
-import seaborn as sns
-
-
 parser = argparse.ArgumentParser()
 default_mesh = load_data_file('orig/triceratops.obj.gz')
 parser.add_argument('--mesh', default=default_mesh)
